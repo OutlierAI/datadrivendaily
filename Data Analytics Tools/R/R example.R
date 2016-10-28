@@ -1,4 +1,12 @@
+### 
+# This script uses some packages that are not installed with the base version of R. Use the 
+# function `install.packages` to install these extra packages, e.g., `install.packages("dplyr")`.
+# If you already have these packages installed, it is a good idea to make sure you have the latest
+# version using `update.packages`, e.g., `update.packages("dplyr")`.
+###
+
 # Read the raw data from a CSV file.
+# This assumes the file is located on you Desktop on a Mac OS, change the file path as needed.
 sales_data <- read.csv("~/Desktop/Sales Data.csv", stringsAsFactors = FALSE)
 # The `str` function gives you some details about the data structure.
 str(sales_data)
