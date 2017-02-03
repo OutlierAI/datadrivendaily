@@ -33,6 +33,7 @@ p[["clusters"]] <-
 	facet_wrap(~ K, 1) +
 	scale_shape_discrete(name = "Cluster")
 
+# Plot the within groups sum of squares
 errors <- data.frame(K = ks, Within = plyr::laply(results, function(rs){ sum(rs$withinss) }), stringsAsFactors = FALSE)
 p[["error"]] <-
 	ggplot(errors) +
