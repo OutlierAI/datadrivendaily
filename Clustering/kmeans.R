@@ -42,6 +42,7 @@ p[["error"]] <-
 	xlab("Number of clusters (k)") +
 	ylab("Within groups sum of squares")
 
+# Write plots to disk
 for (p_name in names(p)) {
 	ggsave(paste0(p_name, ".png"), p[[p_name]], width = 16, height = 9)
 }
