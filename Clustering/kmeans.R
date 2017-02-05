@@ -10,10 +10,10 @@ p[["data"]] <-
 	ggplot(dta) +
 	geom_point(aes(x = Age, y = Dollars.per.purchase, color = factor(Average.table.size), size = Purchases.per.year)) +
 	scale_size_area(name = "Purchases\nper year") +
-	scale_color_discrete(name = "Average\ntable size (cm^2)") +
+	scale_color_discrete(name = "Average table\nsize") +
 	scale_y_continuous(labels = dollar) +
-	xlab("Age (years)") +
-	ylab("Amount per purchase (dollars)")
+	xlab("Age") +
+	ylab("Amount per purchase")
 
 # Run k-means clustering for different k's
 ks         <- 2:29
@@ -31,7 +31,7 @@ p[["clusters"]] <-
 	dplyr::filter(result_dta, K %in% 2:4) +
 	aes(shape = factor(Cluster)) +
 	facet_wrap(~ K, 1) +
-	scale_shape_discrete(name = "Cluster")
+	scale_shape_manual(name = "Cluster", values = c(15, 18, 8, 3))
 
 # Plot the within groups sum of squares
 errors <- data.frame(K = ks, Within = plyr::laply(results, function(rs){ sum(rs$withinss) }), stringsAsFactors = FALSE)
