@@ -11,8 +11,8 @@ corpus <- tm_map(corpus, removePunctuation)
 tf     <- DocumentTermMatrix(corpus, control = list(weighting = weightTf))
 tf_idf <- DocumentTermMatrix(corpus, control = list(weighting = weightTfIdf))
 
-tf_matrix     <- inspect(tf)
-tf_idf_matrix <- inspect(tf_idf)
+tf_matrix     <- as.matrix(tf)
+tf_idf_matrix <- as.matrix(tf_idf)
 
 tf_ranking     <- sort(colSums(tf_matrix), decreasing = TRUE)
 tf_idf_ranking <- sort(colSums(tf_idf_matrix), decreasing = TRUE)
